@@ -1,40 +1,41 @@
 import streamlit as st
-import pandas as pd
-import joblib
 
-model = joblib.load("decision_tree_model.pkl")
+st.set_page_config(
 
-st.title("Smart Grid Stability Prediction")
+page_title="SmartGrid AI",
 
-tau1 = st.number_input("tau1")
-tau2 = st.number_input("tau2")
-tau3 = st.number_input("tau3")
-tau4 = st.number_input("tau4")
+page_icon="⚡",
 
-p1 = st.number_input("p1")
-p2 = st.number_input("p2")
-p3 = st.number_input("p3")
-p4 = st.number_input("p4")
+layout="wide",
 
-g1 = st.number_input("g1")
-g2 = st.number_input("g2")
-g3 = st.number_input("g3")
-g4 = st.number_input("g4")
+initial_sidebar_state="expanded"
 
-if st.button("Prediksi"):
+)
 
-    data = pd.DataFrame([[tau1,tau2,tau3,tau4,
-                          p1,p2,p3,p4,
-                          g1,g2,g3,g4]],
-                        columns=[
-                            'tau1','tau2','tau3','tau4',
-                            'p1','p2','p3','p4',
-                            'g1','g2','g3','g4'
-                        ])
 
-    hasil = model.predict(data)
+st.title("⚡ SmartGrid AI")
 
-    if hasil[0] == 1:
-        st.success("UNSTABLE")
-    else:
-        st.success("STABLE")
+st.caption(
+
+"Vercel Style Multi Model Dashboard"
+
+)
+
+
+st.markdown("""
+
+### 🚀 Features
+
+✅ Decision Tree
+
+🟡 KNN (Coming Soon)
+
+🟡 SVM (Coming Soon)
+
+📁 CSV Prediction
+
+🧠 Manual Prediction
+
+🏆 Model Comparison
+
+""")
